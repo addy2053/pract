@@ -1,6 +1,4 @@
-<?php
-//include ('config.php');
-?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -9,6 +7,16 @@
     <link rel="stylesheet" href="bootstrap.min.css">
     <link rel="stylesheet" href="bootstrap-theme.min.css">
     <link rel="stylesheet" href="bootstrap.min.js">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<!--    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">-->
+<!--    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">-->
+<!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+          <script src="dataTables.bootstrap.js"></script>                                                                                                                                                                                                       <-->
+          <script src="jquery.dataTables.js"></script>                                                                                                                                                                                                       <-->
+
     <title>Title</title>
 </head>
 <body>
@@ -30,7 +38,9 @@ VALUES('$id','$name','$age')";
     mysqli_query($con, $sql);
 }
 ?>
-<table class="table table-striped table-bordered" >
+
+    <table class="table table-bordered table-hover" >
+
     <thead>
         <tr><th >Id</th>
         <th>Name</th>
@@ -39,34 +49,36 @@ VALUES('$id','$name','$age')";
     </thead>
     <tbody>
     <?php
+ function a(){echo "hey";}
+    $sql = "select *from tbl_std limit 0,2";
 
-    $sql = "select *from tbl_std  limit 2";
-
-    $result = mysqli_query($con,$sql);
+    $result = mysqli_query($con, $sql);
     if (mysqli_num_rows($result) > 0) {
         while ($row = mysqli_fetch_assoc($result)) {
 
-            $id=$row['id'];
-            $name=$row['name'];
-            $age=$row['age'];
-          echo "<tr ><td>$id</td> <td>$name</td> <td>$age</td></tr>";
+            $id = $row['id'];
+            $name = $row['name'];
+            $age = $row['age'];
+            echo "<tr ><td>$id</td> <td>$name</td> <td>$age</td></tr>";
         }
     }
-
 ?>
     </tbody>
-<!--    <tfoot >-->
-<!--         <tr><td rowspan="3" class="pagination"><div class="pagination ">-->
-<!---->
-<!--             </div></td>-->
-<!--         </tr>-->
-<!--    </tfoot >-->
-    <tfoot class="hide-if-no-paging">
-        <td colspan="5">
-            <div class="pagination ">
 
-            </div>
-        </td>S
+    <tfoot class="hide-if-no-paging">
+    <td colspan="3">
+
+<div class="col-lg-offset-5">
+<ul class="pagination">
+    <li class="" ><a href="">1</a></li>
+    <li ><a href="process.php">2</a></li>
+    <li><a href="">3</a></li>
+    <li><a href="">4</a></li>
+    <li><a href="">5</a></li>
+</ul>
+</div>
+    </td>
+
     </tfoot>
 </table>
 
